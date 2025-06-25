@@ -1,7 +1,7 @@
 name: Test Project
 on: push
 jobs:
-  tests:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -17,6 +17,7 @@ jobs:
       - name: Echo Success
         run: echo "SUCCEEDED TESTS"
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Get code
